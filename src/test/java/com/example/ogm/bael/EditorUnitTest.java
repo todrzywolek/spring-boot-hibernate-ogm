@@ -1,6 +1,6 @@
 package com.example.ogm.bael;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -9,8 +9,8 @@ import javax.transaction.TransactionManager;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-import static junit.framework.TestCase.assertNotNull;
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class EditorUnitTest {
 

@@ -1,37 +1,33 @@
 package com.example.ogm.hibernate;
 
 
+import org.junit.jupiter.api.AfterAll;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.util.Date;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
 public class HikeTest {
     private static EntityManagerFactory entityManagerFactory;
 
-    public static void main(String[] args) {
-        setUpEntityManagerFactory();
-
-        new HikeTest().canPersistAndLoadPersonAndHikes();
-
-        closeEntityManagerFactory();
-    }
-
-    //    @BeforeAll
+    @BeforeAll
     public static void setUpEntityManagerFactory() {
         entityManagerFactory = Persistence.createEntityManagerFactory("ogm-mongodb");
     }
 
-    //    @AfterAll
+    @AfterAll
     public static void closeEntityManagerFactory() {
         entityManagerFactory.close();
     }
 
-    //    @Test
+    @Test
     public void canPersistAndLoadPersonAndHikes() {
         EntityManager entityManager;
 
