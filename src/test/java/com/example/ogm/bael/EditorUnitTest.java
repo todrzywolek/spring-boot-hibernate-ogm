@@ -12,10 +12,10 @@ import java.util.stream.Collectors;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-public class EditorUnitTest {
+class EditorUnitTest {
 
     @Test
-    public void givenMongoDB_WhenEntitiesCreated_thenCanBeRetrieved() throws Exception {
+    void givenMongoDB_WhenEntitiesCreated_thenCanBeRetrieved() throws Exception {
         EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("ogm-mongodb");
         Editor editor = generateTestData();
         persistTestData(entityManagerFactory, editor);

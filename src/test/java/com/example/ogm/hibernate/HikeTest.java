@@ -14,21 +14,21 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 
-public class HikeTest {
+class HikeTest {
     private static EntityManagerFactory entityManagerFactory;
 
     @BeforeAll
-    public static void setUpEntityManagerFactory() {
+    static void setUpEntityManagerFactory() {
         entityManagerFactory = Persistence.createEntityManagerFactory("ogm-mongodb");
     }
 
     @AfterAll
-    public static void closeEntityManagerFactory() {
+    static void closeEntityManagerFactory() {
         entityManagerFactory.close();
     }
 
     @Test
-    public void canPersistAndLoadPersonAndHikes() {
+    void canPersistAndLoadPersonAndHikes() {
         EntityManager entityManager;
 
         // PART 1 ================================================
