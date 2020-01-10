@@ -29,7 +29,7 @@ public class Territory {
     @ManyToMany(mappedBy = "territories")
     private List<Employee> employees = new ArrayList<>();
 
-    protected Territory() {
+    public Territory() {
     }
 
     public UUID getId() {

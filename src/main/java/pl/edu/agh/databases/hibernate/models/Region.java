@@ -23,7 +23,7 @@ public class Region {
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "region")
     private List<Territory> territories;
 
-    protected Region() {
+    public Region() {
     }
 
     public UUID getId() {
