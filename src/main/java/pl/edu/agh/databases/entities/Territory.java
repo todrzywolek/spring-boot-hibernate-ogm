@@ -1,27 +1,26 @@
 package pl.edu.agh.databases.entities;
 
 import lombok.Data;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Entity
-@Table(name = "territories")
 @Data
+@Entity
+@Table(name = "Territories")
 public class Territory {
-    private static final long serialVersionUID = 1L;
-
     @Id
-    private Integer id;
+    private int territoryID;
 
-    @Column(name = "TerritoryDescription")
     private String territoryDescription;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "RegionID")
     private Region region;
 
-    @ManyToMany(mappedBy = "territories")
+    @ToString.Exclude
+    @ManyToMany(mappedBy = "territories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Employee> employees = new ArrayList<>();
 }

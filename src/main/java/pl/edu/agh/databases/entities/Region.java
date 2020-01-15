@@ -5,18 +5,13 @@ import lombok.Data;
 import javax.persistence.*;
 import java.util.List;
 
-@Entity
-@Table(name = "regions")
 @Data
+@Entity
+@Table(name = "Region")
 public class Region {
-    private static final long serialVersionUID = 1L;
 
     @Id
-    private Integer id;
+    private int regionID;
 
-    @Column(name = "RegionDescription")
     private String regionDescription;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "region", fetch = FetchType.LAZY)
-    private List<Territory> territories;
 }

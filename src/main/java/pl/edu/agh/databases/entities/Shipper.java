@@ -7,14 +7,15 @@ import org.hibernate.annotations.Type;
 import javax.persistence.*;
 import java.util.UUID;
 
-@Entity
-@Table(name = "shippers")
 @Data
+@Entity
+@Table(name = "Shippers")
 public class Shipper {
-    private static final long serialVersionUID = 1L;
 
     @Id
-    private Integer id;
+    private int shipperID;
+
     private String companyName;
+
     private String phone;
 }

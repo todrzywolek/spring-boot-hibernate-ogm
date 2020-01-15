@@ -5,51 +5,39 @@ import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.UUID;
 
-@Entity
-@Table(name = "products")
 @Data
+@Entity
+@Table(name = "Products")
 public class Product {
-    private static final long serialVersionUID = 1L;
 
     @Id
-    private Integer id;
+    private int productID;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "CategoryID")
     private Category category;
 
     @Column(name = "CategoryID", insertable = false, updatable = false)
-    private Integer categoryId;
+    private int categoryId;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "SupplierID")
     private Supplier supplier;
 
-    /**
-     * Storing both foreign key and referenced entity (both target the very same DB column)
-     * See {@linktourl http://stackoverflow.com/a/6312018/1432478}
-     */
-    @Column(name = "SupplierID", insertable = false, updatable = false)
-    private Integer supplierId;
-
-    @Column(length = 40)
     private String productName;
 
-    //    FIXME: below doesn't work - doesn't generate table
-//    @Column(name = "discontinued", columnDefinition = "INT(1)")
-    private Boolean discontinued;
+    private boolean discontinued;
 
-    @Column(length = 20)
     private String quantityPerUnit;
 
-    // TODO: money type
-    private float unitPrice;
+    private BigDecimal unitPrice;
 
-    private Integer unitsInStock;
+    private int unitsInStock;
 
-    private Integer unitsOnOrder;
+    private int unitsOnOrder;
 
-    private Integer reorderLevel;
+    private int reorderLevel;
 }

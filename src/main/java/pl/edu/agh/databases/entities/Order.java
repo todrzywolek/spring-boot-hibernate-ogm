@@ -1,32 +1,30 @@
 package pl.edu.agh.databases.entities;
 
 import lombok.Data;
+import lombok.ToString;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.UUID;
 
-@Entity
-@Table(name = "orders")
 @Data
+@Entity
+@Table(name = "Orders")
 public class Order {
-    private static final long serialVersionUID = 1L;
 
     @Id
-    private Integer id;
+    private int orderID;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "CustomerID")
     private Customer customer;
 
-    @Transient
-    private String customerId;
-
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
 
@@ -42,14 +40,11 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date shippedDate;
 
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "ShipVia")
     private Shipper shipper;
 
-    @Transient
-    private Integer shipperId;
-
-    private float freight;
+    private BigDecimal freight;
 
     private String shipName;
 
@@ -63,6 +58,7 @@ public class Order {
 
     private String shipCountry;
 
-    @OneToMany(mappedBy = "order")
-    private List<OrderDetail> orderDetails = new ArrayList<>();
+//    @ToString.Exclude
+//    @OneToMany(mappedBy = "pk.order")
+//    private List<OrderDetail> orderDetails = new ArrayList<>();
 }
