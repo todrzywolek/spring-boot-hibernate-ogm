@@ -1,5 +1,6 @@
 package pl.edu.agh.databases.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
@@ -14,14 +15,13 @@ import java.util.UUID;
 public class Product {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int productID;
 
+    @JsonIgnore
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "CategoryID")
     private Category category;
-
-    @Column(name = "CategoryID", insertable = false, updatable = false)
-    private int categoryId;
 
     @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "SupplierID")

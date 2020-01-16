@@ -14,6 +14,7 @@ import java.util.*;
 public class Employee {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int EmployeeID;
 
     private String lastName;

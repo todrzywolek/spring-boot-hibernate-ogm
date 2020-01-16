@@ -17,4 +17,40 @@ Deal with it
 
 ## Insert Northwind into SQL Server
 
-## 
+## Spring Data JPA configuration
+```Java
+@Configuration
+@EnableJpaRepositories
+@EnableTransactionManagement
+class DatabaseConfiguration {
+
+    @Bean
+    public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
+
+        Map<String, String> properties = new HashMap<>();
+        properties.put("hibernate.ogm.datastore.provider", "mongodb");
+        properties.put("hibernate.ogm.datastore.database", "Northwind");
+        properties.put("hibernate.ogm.datastore.create_database", "true");
+        properties.put("hibernate.ogm.datastore.host", "localhost:27017");
+
+        LocalContainerEntityManagerFactoryBean entityManager = new LocalContainerEntityManagerFactoryBean();
+        entityManager.setPackagesToScan("pl.edu.agh.databases.entities");
+        entityManager.setPersistenceUnitName("mongoPersistenceUnit");
+        entityManager.setJpaPropertyMap(properties);
+        entityManager.setPersistenceProviderClass(HibernateOgmPersistence.class);
+        entityManager.setEntityManagerFactoryInterface(OgmSessionFactory.class);
+        entityManager.setEntityManagerInterface(OgmSession.class);
+        return entityManager;
+    }
+
+    @Bean
+    public PlatformTransactionManager transactionManager() {
+        JpaTransactionManager transactionManager = new JpaTransactionManager();
+        transactionManager.setEntityManagerFactory(entityManagerFactory().getObject());
+        return transactionManager;
+    }
+}
+```
+
+## Spring Data JPA repositiories
+Spring Data JPA repositories does't work with Hibernate OGM, because it does not implement Criteria Queries yet.

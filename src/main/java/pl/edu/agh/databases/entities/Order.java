@@ -18,6 +18,7 @@ import java.util.UUID;
 public class Order {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int orderID;
 
     @ManyToOne(cascade=CascadeType.ALL)

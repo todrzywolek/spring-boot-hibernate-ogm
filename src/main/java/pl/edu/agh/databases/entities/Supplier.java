@@ -17,6 +17,7 @@ public class Supplier {
     private static final long serialVersionUID = 1L;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int supplierID;
 
     private String companyName;

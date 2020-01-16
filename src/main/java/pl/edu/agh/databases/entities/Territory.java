@@ -11,7 +11,9 @@ import java.util.List;
 @Entity
 @Table(name = "Territories")
 public class Territory {
+    
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int territoryID;
 
     private String territoryDescription;

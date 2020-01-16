@@ -13,6 +13,7 @@ import java.util.UUID;
 public class Shipper {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int shipperID;
 
     private String companyName;

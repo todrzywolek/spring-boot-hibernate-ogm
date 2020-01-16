@@ -11,6 +11,7 @@ import java.util.List;
 public class Region {
 
     @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
     private int regionID;
 
     private String regionDescription;
