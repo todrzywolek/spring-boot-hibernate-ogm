@@ -11,8 +11,12 @@ import java.util.List;
 @Repository
 public class CategoryRepository {
 
-    @Autowired
     private EntityManager entityManager;
+
+    @Autowired
+    public CategoryRepository(EntityManager entityManager) {
+        this.entityManager = entityManager;
+    }
 
     public List<Category> findAll() {
         return query("select x from Category x");

@@ -2,27 +2,42 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>com.example</groupId>
-    <artifactId>ogm</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-    <name>ogm-demo</name>
-    <description>OGM Demo Project</description>
-
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.2.2.RELEASE</version>
         <relativePath/>
     </parent>
+    <groupId>com.example</groupId>
+    <artifactId>ogm</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <name>ogm</name>
+    <description>Spring Boot and Hibernate OGM</description>
 
     <properties>
         <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
+        <!-- Spring Data MongoDB dependencies -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-jpa</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.hibernate</groupId>
+                    <artifactId>hibernate-core</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-data-mongodb</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -36,6 +51,7 @@
             </exclusions>
         </dependency>
 
+        <!-- Hibernate OGM dependencies -->
         <dependency>
             <groupId>org.hibernate.ogm</groupId>
             <artifactId>hibernate-ogm-mongodb</artifactId>
@@ -53,11 +69,6 @@
             <version>5.3.6.Final</version>
         </dependency>
         <dependency>
-            <groupId>com.microsoft.sqlserver</groupId>
-            <artifactId>mssql-jdbc</artifactId>
-            <version>8.1.1.jre8-preview</version>
-        </dependency>
-        <dependency>
             <groupId>org.jboss.narayana.jta</groupId>
             <artifactId>narayana-jta</artifactId>
             <version>5.9.2.Final</version>
@@ -65,8 +76,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
-            <scope>provided</scope>
+            <optional>true</optional>
         </dependency>
     </dependencies>
 

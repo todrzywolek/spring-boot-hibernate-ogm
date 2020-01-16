@@ -1,26 +1,23 @@
-package pl.edu.agh.databases.entities;
+package pl.edu.agh.databases.spring.entities;
 
 import lombok.Data;
+import lombok.ToString;
+import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
 @Data
-@Entity
-@Table(name = "Orders")
+@Document(collection = "Orders")
 public class Order {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
-    private int orderID;
+    private String orderID;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "CustomerID")
     private Customer customer;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "EmployeeID")
     private Employee employee;
 
     @Transient
@@ -35,8 +32,6 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date shippedDate;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "ShipVia")
     private Shipper shipper;
 
     private BigDecimal freight;
@@ -53,7 +48,6 @@ public class Order {
 
     private String shipCountry;
 
-//    @ToString.Exclude
-//    @OneToMany(mappedBy = "pk.order")
-//    private List<OrderDetail> orderDetails = new ArrayList<>();
+    @ToString.Exclude
+    private List<OrderDetail> orderDetails;
 }

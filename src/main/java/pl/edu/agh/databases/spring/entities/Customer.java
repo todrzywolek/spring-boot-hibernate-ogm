@@ -1,16 +1,17 @@
-package pl.edu.agh.databases.entities;
+package pl.edu.agh.databases.spring.entities;
 
 import lombok.Data;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Table;
 
 @Data
-@Entity
-@Table(name = "Customers")
+@Document(collection = "Customers")
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
     private String customerId;
 
     private String companyName;
