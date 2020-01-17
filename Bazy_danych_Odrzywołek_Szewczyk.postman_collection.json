@@ -1,0 +1,365 @@
+{
+	"info": {
+		"_postman_id": "d737ea69-98af-4f99-8654-ed1bee0e245d",
+		"name": "Bazy_danych_Odrzywołek_Szewczyk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "spring",
+			"item": [
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "Get categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryID\": \"1\",\n\t\"categoryName\": \"Custom category 1\",\n    \"description\": \"Custom\",\n    \"products\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryID\": \"5e20ec5c271a671a7df66354\",\n    \"categoryName\": \"Category 2\",\n    \"description\": \"Category 2\",\n    \"products\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "Get customers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customerId\": \"HEHEHE\",\n    \"companyName\": \"Bottom-Dollar Markets\",\n    \"contactName\": \"Elizabeth Lincoln\",\n    \"contactTitle\": \"Accounting Manager\",\n    \"address\": \"23 Tsawassen Blvd.\",\n    \"city\": \"Tsawassen\",\n    \"region\": \"BC\",\n    \"postalCode\": \"T2F 8M4\",\n    \"country\": \"Canada\",\n    \"phone\": \"(604) 555-4729\",\n    \"fax\": \"(604) 555-3745\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update customers",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryID\": \"5e20ec5c271a671a7df66354\",\n    \"categoryName\": \"Category 2\",\n    \"description\": \"Category 2\",\n    \"products\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove customer",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Get employees",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/spring/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"spring",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Find category by Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/category/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get categories",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create category",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"categoryName\": \"category1\",\n\t\"description\": \"Category 1\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/category",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"category"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
