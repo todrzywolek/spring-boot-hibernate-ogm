@@ -223,3 +223,44 @@ Content-Type: application/json
 }
 
 ###
+GET localhost:8080/product
+
+###
+GET localhost:8080/product/1003
+
+###
+POST localhost:8080/product
+Content-Type: application/json
+
+{
+  "categoryID": 1,
+  "supplierID": 2,
+  "productName": "Ciperki!!!",
+  "discontinued": false,
+  "quantityPerUnit": "10 boxes x 20 bags",
+  "unitPrice": 18.0000,
+  "unitsInStock": 39,
+  "unitsOnOrder": 0,
+  "reorderLevel": 10
+}
+
+###
+PUT localhost:8080/product/1003
+Content-Type: application/json
+
+{
+  "categoryID": 1,
+  "supplierID": 2,
+  "productName": "Ciperki",
+  "discontinued": false,
+  "quantityPerUnit": "10 boxes x 20 bags",
+  "unitPrice": 18.0000,
+  "unitsInStock": 39,
+  "unitsOnOrder": 0,
+  "reorderLevel": 10
+}
+
+###
+GET localhost:8080/category/1/products
+
+###

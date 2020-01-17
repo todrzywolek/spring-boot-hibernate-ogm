@@ -54,7 +54,7 @@ public class CategoryController {
 
     @Transactional
     @PutMapping("/{id}")
-    public CategoryDTO updateCategory(@PathVariable Integer id, @RequestBody Category newCategory) {
+    public CategoryDTO updateCategory(@PathVariable Integer id, @RequestBody CategoryDTO newCategory) {
         Category category = categoryRepository.findByID(id);
         newCategory.setCategoryID(id);
         mapper.map(newCategory, category);
@@ -66,5 +66,16 @@ public class CategoryController {
     @DeleteMapping("/{id}")
     public void deleteCategory(@PathVariable Integer id) {
         categoryRepository.delete(id);
+    }
+
+    @Transactional
+    @GetMapping("/{id}/products")
+    public List<ProductController.ProductDTO> getProducts(@PathVariable Integer id) {
+        return categoryRepository
+                .findByID(id)
+                .getProducts()
+                .stream()
+                .map(x -> mapper.map(x, ProductController.ProductDTO.class))
+                .collect(Collectors.toList());
     }
 }

@@ -3,7 +3,6 @@ package pl.edu.agh.databases.controllers;
 import lombok.Data;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.agh.databases.entities.Category;
 import pl.edu.agh.databases.entities.Product;

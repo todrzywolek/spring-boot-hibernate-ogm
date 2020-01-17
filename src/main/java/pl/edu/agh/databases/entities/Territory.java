@@ -22,6 +22,9 @@ public class Territory {
     @JoinColumn(name = "RegionID")
     private Region region;
 
+    @Column(name = "RegionID", insertable = false, updatable = false)
+    private Integer regionID;
+
     @ToString.Exclude
     @ManyToMany(mappedBy = "territories", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Employee> employees = new ArrayList<>();
