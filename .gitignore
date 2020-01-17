@@ -33,3 +33,6 @@ build/
 # Hibernate auto generated stuff
 ObjectStore/
 PutObjectStoreDirHere
+
+### Others
+.DS_Store

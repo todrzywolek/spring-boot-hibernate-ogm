@@ -2,7 +2,9 @@ package pl.edu.agh.databases.entities;
 
 import lombok.Data;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Data
 @Entity
@@ -10,7 +12,6 @@ import javax.persistence.*;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
     private String customerId;
 
     private String companyName;

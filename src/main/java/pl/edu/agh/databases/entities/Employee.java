@@ -2,11 +2,11 @@ package pl.edu.agh.databases.entities;
 
 import lombok.Data;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -15,7 +15,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int EmployeeID;
+    private int employeeID;
 
     private String lastName;
 
@@ -52,7 +52,7 @@ public class Employee {
 
     private String photoPath;
 
-    @ManyToOne(targetEntity = Employee.class, fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = Employee.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "ReportsTo")
     private Employee supervisor;
 
@@ -63,7 +63,7 @@ public class Employee {
     @OneToMany(mappedBy = "supervisor")
     private List<Employee> subordinates;
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "employeeterritories",
             joinColumns = {
                     @JoinColumn(name = "EmployeeID", nullable = false, updatable = false)},

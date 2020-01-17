@@ -1,59 +1,40 @@
 package pl.edu.agh.databases.entities;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 import org.bson.types.ObjectId;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.NotFound;
-import org.hibernate.annotations.NotFoundAction;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import javax.persistence.metamodel.SingularAttribute;
-import javax.persistence.metamodel.StaticMetamodel;
-import java.io.Serializable;
 import java.math.BigDecimal;
-import java.security.PrivateKey;
-import java.util.UUID;
 
 @Data
 @Entity
-@Table(name = "\"Order Details\"")
+@Table(name = "OrderDetails")
 public class OrderDetail {
 
-    @Data
-    @Embeddable
-    public static class OrderDetailPK implements Serializable {
-        @ManyToOne(cascade=CascadeType.ALL)
-        @JoinColumn(name = "OrderID")
-        private Order order;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    ObjectId id;
 
-        @ManyToOne(cascade=CascadeType.ALL)
-        @JoinColumn(name = "ProductID")
-        private Product product;
-    }
+    @ManyToOne
+    @JoinColumn(name = "OrderID")
+    private Order order;
 
-    @StaticMetamodel(OrderDetail.class)
-    public abstract static class OrderDetailStaticModel {
-        public static volatile SingularAttribute<OrderDetail, OrderDetailPK> pk;
-        public static volatile SingularAttribute<OrderDetail, BigDecimal> unitPrice;
-        public static volatile SingularAttribute<OrderDetail, Integer> quantity;
-        public static volatile SingularAttribute<OrderDetail, BigDecimal> discount;
-    }
+    @Column(name = "OrderID", insertable = false, updatable = false)
+    private Integer orderID;
 
-    @StaticMetamodel(OrderDetailPK.class)
-    public abstract static class OrderDetailPKStaticModel {
-        public static volatile SingularAttribute<OrderDetailPK, Order> order;
-        public static volatile SingularAttribute<OrderDetailPK, Product> product;
-    }
+    @ManyToOne
+    @JoinColumn(name = "ProductID")
+    private Product product;
 
-    @EmbeddedId
-    private OrderDetailPK pk;
+    @Column(name = "ProductID", insertable = false, updatable = false)
+    private Integer productID;
 
+    @Column(name = "UnitPrice")
     private BigDecimal unitPrice;
 
-    private int quantity;
+    @Column(name = "Quantity")
+    private Integer quantity;
 
+    @Column(name = "Discount")
     private BigDecimal discount;
 }
