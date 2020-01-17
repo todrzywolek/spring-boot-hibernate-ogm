@@ -12,5 +12,8 @@ db.getCollectionNames()
 db.collectionName.find()
 db.Employees.find()
 
+# find by id
+db.Orders.find( { _id: 3 } )
+
 # restore dump
 mongorestore dump/

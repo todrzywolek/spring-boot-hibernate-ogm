@@ -2,10 +2,12 @@ package pl.edu.agh.databases.spring.entities;
 
 import lombok.Data;
 import lombok.ToString;
+import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.mongodb.core.mapping.Field;
 
-import javax.persistence.*;
 import java.math.BigDecimal;
+import java.math.BigInteger;
 import java.util.Date;
 import java.util.List;
 
@@ -16,23 +18,17 @@ public class Order {
     @Id
     private String orderID;
 
-    private Customer customer;
-
-    private Employee employee;
-
-    @Transient
+    @Field("EmployeeID")
     private Integer employeeId;
 
-    @Temporal(TemporalType.DATE)
+    @Field("CustomerID")
+    private String customerId;
+
     private Date orderDate;
 
-    @Temporal(TemporalType.DATE)
     private Date requiredDate;
 
-    @Temporal(TemporalType.DATE)
     private Date shippedDate;
-
-    private Shipper shipper;
 
     private BigDecimal freight;
 
@@ -42,7 +38,11 @@ public class Order {
 
     private String shipCity;
 
+    @Field("ShipRegion")
     private String shipRegion;
+
+    @Field("ShipVia")
+    private String shipVia;
 
     private String shipPostalCode;
 

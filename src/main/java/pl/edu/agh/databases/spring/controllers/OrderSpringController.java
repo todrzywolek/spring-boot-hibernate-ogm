@@ -2,8 +2,8 @@ package pl.edu.agh.databases.spring.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.databases.entities.Order;
 import pl.edu.agh.databases.spring.dao.OrderSpringRepository;
+import pl.edu.agh.databases.spring.entities.Order;
 
 import javax.validation.Valid;
 import java.net.URI;
