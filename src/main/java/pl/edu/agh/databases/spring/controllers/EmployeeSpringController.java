@@ -2,7 +2,7 @@ package pl.edu.agh.databases.spring.controllers;
 
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import pl.edu.agh.databases.spring.dao.EmployeeRepository;
+import pl.edu.agh.databases.spring.dao.EmployeeSpringRepository;
 import pl.edu.agh.databases.spring.entities.Employee;
 
 import javax.validation.Valid;
@@ -14,40 +14,40 @@ import java.util.Optional;
 @RequestMapping("/spring/employees")
 public class EmployeeSpringController {
 
-    private EmployeeRepository employeeRepository;
+    private EmployeeSpringRepository employeeSpringRepository;
 
-    public EmployeeSpringController(EmployeeRepository employeeRepository) {
-        this.employeeRepository = employeeRepository;
+    public EmployeeSpringController(EmployeeSpringRepository employeeSpringRepository) {
+        this.employeeSpringRepository = employeeSpringRepository;
     }
 
     @GetMapping
     public ResponseEntity<?> getEmployees() {
-        List<Employee> employees = employeeRepository.findAll();
+        List<Employee> employees = employeeSpringRepository.findAll();
 
         return ResponseEntity.ok(employees);
     }
 
     @PostMapping
     public ResponseEntity<?> addEmployee(@RequestBody @Valid Employee employee) {
-        Employee persistedEmployee = employeeRepository.save(employee);
+        Employee persistedEmployee = employeeSpringRepository.save(employee);
 
         return ResponseEntity.created(URI.create("/spring/employees/" + persistedEmployee.getEmployeeID())).build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getEmployee(@PathVariable("id") String id) {
-        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        Optional<Employee> employeeOptional = employeeSpringRepository.findById(id);
 
         return employeeOptional.isPresent() ? ResponseEntity.ok(employeeOptional.get()) : ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateEmployee(@PathVariable("id") String id, @RequestBody @Valid Employee newEmployee) {
-        Optional<Employee> oldEmployeeOptional = employeeRepository.findById(id);
+        Optional<Employee> oldEmployeeOptional = employeeSpringRepository.findById(id);
         if (oldEmployeeOptional.isPresent()) {
             Employee oldEmployee = oldEmployeeOptional.get();
             newEmployee.setEmployeeID(oldEmployee.getEmployeeID());
-            employeeRepository.save(newEmployee);
+            employeeSpringRepository.save(newEmployee);
             return ResponseEntity.ok().build();
         }
         return addEmployee(newEmployee);
@@ -55,10 +55,10 @@ public class EmployeeSpringController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> removeEmployee(@PathVariable("id") String id) {
-        Optional<Employee> employeeOptional = employeeRepository.findById(id);
+        Optional<Employee> employeeOptional = employeeSpringRepository.findById(id);
         if (employeeOptional.isPresent()) {
             Employee employee = employeeOptional.get();
-            employeeRepository.delete(employee);
+            employeeSpringRepository.delete(employee);
         }
         return ResponseEntity.ok().build();
     }

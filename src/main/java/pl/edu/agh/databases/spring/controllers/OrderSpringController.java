@@ -3,7 +3,7 @@ package pl.edu.agh.databases.spring.controllers;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.agh.databases.entities.Order;
-import pl.edu.agh.databases.spring.dao.OrderRepository;
+import pl.edu.agh.databases.spring.dao.OrderSpringRepository;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -14,39 +14,39 @@ import java.util.Optional;
 @RequestMapping("/spring/orders")
 public class OrderSpringController {
 
-    private OrderRepository orderRepository;
+    private OrderSpringRepository orderSpringRepository;
 
-    public OrderSpringController(OrderRepository orderRepository) {
-        this.orderRepository = orderRepository;
+    public OrderSpringController(OrderSpringRepository orderSpringRepository) {
+        this.orderSpringRepository = orderSpringRepository;
     }
 
     @GetMapping
     public ResponseEntity<?> getOrders() {
-        List<Order> orders = orderRepository.findAll();
+        List<Order> orders = orderSpringRepository.findAll();
 
         return ResponseEntity.ok(orders);
     }
 
     @PostMapping
     public ResponseEntity<?> addOrder(@RequestBody @Valid Order order) {
-        Order persistedOrder = orderRepository.save(order);
+        Order persistedOrder = orderSpringRepository.save(order);
         return ResponseEntity.created(URI.create("/spring/orders/" + persistedOrder.getOrderID())).build();
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getOrder(@PathVariable("id") String id) {
-        Optional<Order> orderOptional = orderRepository.findById(id);
+        Optional<Order> orderOptional = orderSpringRepository.findById(id);
 
         return orderOptional.isPresent() ? ResponseEntity.ok(orderOptional.get()) : ResponseEntity.ok().build();
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateOrder(@PathVariable("id") String id, @RequestBody @Valid Order newOrder) {
-        Optional<Order> oldOrderOptional = orderRepository.findById(id);
+        Optional<Order> oldOrderOptional = orderSpringRepository.findById(id);
         if (oldOrderOptional.isPresent()) {
             Order oldOrder = oldOrderOptional.get();
             newOrder.setOrderID(oldOrder.getOrderID());
-            orderRepository.save(newOrder);
+            orderSpringRepository.save(newOrder);
             return ResponseEntity.ok().build();
         }
         return addOrder(newOrder);
@@ -54,10 +54,10 @@ public class OrderSpringController {
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> removeOrder(@PathVariable("id") String id) {
-        Optional<Order> orderOptional = orderRepository.findById(id);
+        Optional<Order> orderOptional = orderSpringRepository.findById(id);
         if (orderOptional.isPresent()) {
             Order order = orderOptional.get();
-            orderRepository.delete(order);
+            orderSpringRepository.delete(order);
         }
         return ResponseEntity.ok().build();
     }
