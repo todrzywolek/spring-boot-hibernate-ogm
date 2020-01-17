@@ -85,43 +85,43 @@ public class ConverterApplication {
             EntityTransaction transaction = entityManager.getTransaction();
             transaction.begin();
 
-            for(Category category : categoryList) {
+            for (Category category : categoryList) {
                 entityManager.persist(category);
             }
 
-            for(Customer customer : customerList) {
+            for (Customer customer : customerList) {
                 entityManager.persist(customer);
             }
 
-            for(Employee employee : employeeList) {
+            for (Employee employee : employeeList) {
                 entityManager.persist(employee);
             }
 
-            for(Order order : orderList) {
+            for (Order order : orderList) {
                 entityManager.persist(order);
             }
 
-            for(OrderDetail orderDetail : orderDetailList) {
+            for (OrderDetail orderDetail : orderDetailList) {
                 entityManager.persist(orderDetail);
             }
 
-            for(Product product : productList) {
+            for (Product product : productList) {
                 entityManager.persist(product);
             }
 
-            for(Region region : regionList) {
+            for (Region region : regionList) {
                 entityManager.persist(region);
             }
 
-            for(Shipper shipper : shipperList) {
+            for (Shipper shipper : shipperList) {
                 entityManager.persist(shipper);
             }
 
-            for(Supplier supplier : supplierList) {
+            for (Supplier supplier : supplierList) {
                 entityManager.persist(supplier);
             }
 
-            for(Territory territory : territoryList) {
+            for (Territory territory : territoryList) {
                 entityManager.persist(territory);
             }
 

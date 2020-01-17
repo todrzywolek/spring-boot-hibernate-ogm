@@ -1,16 +1,10 @@
 package pl.edu.agh.databases.entities;
 
 import lombok.Data;
-import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
 import java.math.BigDecimal;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
-import java.util.UUID;
 
 @Data
 @Entity
@@ -21,14 +15,14 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int orderID;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CustomerID")
     private Customer customer;
 
     @Column(name = "CustomerID", insertable = false, updatable = false)
     private String customerID;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
 
@@ -44,7 +38,7 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date shippedDate;
 
-    @ManyToOne(cascade=CascadeType.PERSIST)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "ShipVia")
     private Shipper shipper;
 

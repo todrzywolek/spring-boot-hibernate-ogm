@@ -75,7 +75,7 @@ public class EmployeeController {
     public EmployeeDTO addEmployee(@RequestBody EmployeeDTO employee) {
         Employee toCreate = mapper.map(employee, Employee.class);
 
-        if(toCreate.getReportsTo() != null) {
+        if (toCreate.getReportsTo() != null) {
             Employee supervisor = employeeRepository.findByID(employee.getReportsTo());
             toCreate.setSupervisor(supervisor);
             supervisor.getSubordinates().add(toCreate);
@@ -94,7 +94,7 @@ public class EmployeeController {
         employee.setEmployeeID(existing.getEmployeeID());
         mapper.map(employee, existing);
 
-        if(employee.getReportsTo() != null && employee.getReportsTo() != oldSupervisor.getEmployeeID()) {
+        if (employee.getReportsTo() != null && employee.getReportsTo() != oldSupervisor.getEmployeeID()) {
             oldSupervisor.getSubordinates().remove(existing);
             existing.setSupervisor(supervisor);
             supervisor.getSubordinates().add(existing);

@@ -2,11 +2,11 @@ package pl.edu.agh.databases.entities;
 
 import lombok.Data;
 import lombok.ToString;
-import org.hibernate.annotations.GenericGenerator;
-import org.hibernate.annotations.Type;
 
 import javax.persistence.*;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Data
 @Entity
@@ -63,7 +63,7 @@ public class Employee {
     @OneToMany(mappedBy = "supervisor")
     private List<Employee> subordinates;
 
-    @ManyToMany(cascade=CascadeType.ALL)
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "employeeterritories",
             joinColumns = {
                     @JoinColumn(name = "EmployeeID", nullable = false, updatable = false)},

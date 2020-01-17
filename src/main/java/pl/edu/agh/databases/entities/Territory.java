@@ -18,7 +18,7 @@ public class Territory {
 
     private String territoryDescription;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "RegionID")
     private Region region;
 

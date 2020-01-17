@@ -73,10 +73,10 @@ public class OrderController {
                 .map(x -> mapper.map(x, OrderDTO.class))
                 .map(x -> x.setOrderDetailsAndReturn(
                         orderDetailsRepository
-                            .findByOrder(x.getOrderID())
-                            .stream()
-                            .map(y -> mapper.map(y, OrderDetailDTO.class))
-                            .collect(Collectors.toList())))
+                                .findByOrder(x.getOrderID())
+                                .stream()
+                                .map(y -> mapper.map(y, OrderDetailDTO.class))
+                                .collect(Collectors.toList())))
                 .collect(Collectors.toList());
     }
 
@@ -87,10 +87,10 @@ public class OrderController {
         OrderDTO orderDTO = mapper.map(order, OrderDTO.class);
         orderDTO.setOrderDetails(
                 orderDetailsRepository
-                    .findByOrder(id)
-                    .stream()
-                    .map(y -> mapper.map(y, OrderDetailDTO.class))
-                    .collect(Collectors.toList()));
+                        .findByOrder(id)
+                        .stream()
+                        .map(y -> mapper.map(y, OrderDetailDTO.class))
+                        .collect(Collectors.toList()));
 
         return orderDTO;
     }
@@ -123,13 +123,13 @@ public class OrderController {
     }
 
     private void removeOrderDetailsByOrderID(int id) {
-        for(OrderDetail orderDetail : orderDetailsRepository.findByOrder(id)) {
+        for (OrderDetail orderDetail : orderDetailsRepository.findByOrder(id)) {
             orderDetailsRepository.delete(orderDetail.getId());
         }
     }
 
     private void saveOrderDetails(OrderDTO orderDTO, Order order) {
-        for(OrderDetailDTO orderDetailDTO : orderDTO.getOrderDetails()) {
+        for (OrderDetailDTO orderDetailDTO : orderDTO.getOrderDetails()) {
             OrderDetail detailToCreate = mapper.map(orderDetailDTO, OrderDetail.class);
             detailToCreate.setOrder(order);
             detailToCreate.setProduct(productRepository.findByID(orderDetailDTO.getProductID()));

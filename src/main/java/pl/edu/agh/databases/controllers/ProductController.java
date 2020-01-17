@@ -83,14 +83,14 @@ public class ProductController {
         Category oldCategory = toUpdate.getCategory();
         Supplier oldSupplier = toUpdate.getSupplier();
 
-        if(oldCategory.getCategoryID() != productDTO.getCategoryID()) {
+        if (oldCategory.getCategoryID() != productDTO.getCategoryID()) {
             oldCategory.getProducts().remove(toUpdate);
             Category category = categoryRepository.findByID(toUpdate.getCategoryID());
             toUpdate.setCategory(category);
             category.getProducts().add(toUpdate);
         }
 
-        if(oldSupplier.getSupplierID() != productDTO.getSupplierID()) {
+        if (oldSupplier.getSupplierID() != productDTO.getSupplierID()) {
             oldSupplier.getProducts().remove(toUpdate);
             Supplier supplier = supplierRepository.findByID(toUpdate.getSupplierID());
             toUpdate.setSupplier(supplier);
