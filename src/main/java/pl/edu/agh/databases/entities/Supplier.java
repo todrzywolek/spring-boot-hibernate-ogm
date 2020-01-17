@@ -43,6 +43,6 @@ public class Supplier {
     private String homePage;
 
     @ToString.Exclude
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "supplier")
+    @OneToMany(mappedBy = "supplier")
     private List<Product> products = new ArrayList<>();
 }

@@ -19,13 +19,19 @@ public class Product {
     private int productID;
 
     @JsonIgnore
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "CategoryID")
     private Category category;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @Column(name = "CategoryID", nullable = false, insertable = false)
+    private Integer categoryID;
+
+    @ManyToOne(cascade = CascadeType.PERSIST)
     @JoinColumn(name = "SupplierID")
     private Supplier supplier;
+
+    @Column(name = "SupplierID", nullable = false, insertable = false)
+    private Integer supplierID;
 
     private String productName;
 

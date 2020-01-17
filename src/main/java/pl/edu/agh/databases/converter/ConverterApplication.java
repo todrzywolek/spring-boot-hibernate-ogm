@@ -125,7 +125,6 @@ public class ConverterApplication {
                 entityManager.persist(territory);
             }
 
-
             entityManager.flush();
             entityManager.close();
             transaction.commit();

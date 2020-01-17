@@ -15,7 +15,7 @@ public class Employee {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int EmployeeID;
+    private int employeeID;
 
     private String lastName;
 
@@ -52,7 +52,7 @@ public class Employee {
 
     private String photoPath;
 
-    @ManyToOne(targetEntity = Employee.class, fetch = FetchType.LAZY, cascade=CascadeType.ALL)
+    @ManyToOne(targetEntity = Employee.class, fetch = FetchType.EAGER)
     @JoinColumn(name = "ReportsTo")
     private Employee supervisor;
 

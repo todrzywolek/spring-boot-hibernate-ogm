@@ -1,0 +1,225 @@
+GET localhost:8080/category
+
+###
+GET localhost:8080/category/1
+
+###
+POST localhost:8080/category
+Content-Type: application/json
+
+{
+  "categoryName":"Cars",
+  "description":"Amazing stuff here!"
+}
+
+###
+PUT localhost:8080/category/1002
+Content-Type: application/json
+
+{
+  "categoryName":"Cars and magic",
+  "description":"Amazing stuff here!"
+}
+
+###
+DELETE localhost:8080/category/1002
+
+###
+GET localhost:8080/customer
+
+###
+GET localhost:8080/customer/BSBEV
+
+###
+POST localhost:8080/customer
+Content-Type: application/json
+
+{
+  "customerId": "KRZBRZ",
+  "companyName": "Januszpol",
+  "contactName": "Krzysiu Brzeczyszczykiewicz",
+  "contactTitle": "Nikt szczegolny",
+  "address": "Uliczna 16",
+  "city": "Pogwizdow",
+  "region": null,
+  "postalCode": "90110",
+  "country": "Poland",
+  "phone": "981-443655",
+  "fax": "981-443655"
+}
+
+###
+PUT localhost:8080/customer/KRZBRZ
+Content-Type: application/json
+
+{
+  "customerId": "KRZBRZ",
+  "companyName": "Januszpol",
+  "contactName": "Krzysiu Brzeczyszczykiewicz",
+  "contactTitle": "Kierownik",
+  "address": "Uliczna 16",
+  "city": "Pogwizdow",
+  "region": null,
+  "postalCode": "90110",
+  "country": "Poland",
+  "phone": "981-443655",
+  "fax": "981-443655"
+}
+
+###
+DELETE localhost:8080/customer/KRZBRZ
+
+###
+GET localhost:8080/employee
+
+###
+GET localhost:8080/employee/3/subordinates
+
+###
+GET localhost:8080/employee/2
+
+###
+POST localhost:8080/employee
+Content-Type: application/json
+
+{
+  "lastName": "Ireneusz",
+  "firstName": "Wydmuch",
+  "title": "Mlodszy konserwator powierzchni poziomych",
+  "titleOfCourtesy": "Prof. Dr. hab. inz. of nothing",
+  "birthDate": "1952-02-18T23:00:00.000+0000",
+  "hireDate": "1992-08-13T22:00:00.000+0000",
+  "address": "Pogwizdow",
+  "city": "Tacoma",
+  "region": "WA",
+  "postalCode": "98401",
+  "country": "USA",
+  "homePhone": "(206) 555-9482",
+  "extension": "3457",
+  "notes": "Ireneusz Wydmuch z Pogwizodwa niestety nic nie umie :(",
+  "photoPath": "http://accweb/emmployees/fuller.bmp",
+  "reportsTo": 2
+}
+
+###
+PUT localhost:8080/employee/1008
+Content-Type: application/json
+
+{
+  "lastName": "Ireneusz",
+  "firstName": "Wydmuch",
+  "title": "Mlodszy konserwator powierzchni poziomych",
+  "titleOfCourtesy": "Prof. Dr. hab. inz. of nothing",
+  "birthDate": "1952-02-18T23:00:00.000+0000",
+  "hireDate": "1992-08-13T22:00:00.000+0000",
+  "address": "Pogwizdow",
+  "city": "Tacoma",
+  "region": "WA",
+  "postalCode": "98401",
+  "country": "USA",
+  "homePhone": "(206) 555-9482",
+  "extension": "3457",
+  "notes": "Ireneusz Wydmuch z Pogwizodwa niestety nic nie umie :(",
+  "photoPath": "http://accweb/emmployees/fuller.bmp",
+  "reportsTo": 3
+}
+
+###
+DELETE localhost:8080/employee/1008
+
+###
+GET localhost:8080/order/10248
+
+###
+POST localhost:8080/order
+Content-Type: application/json
+
+{
+  "customerID": "VINET",
+  "employeeID": 5,
+  "orderDate": "1996-07-03T22:00:00.000+0000",
+  "requiredDate": "1996-07-31T22:00:00.000+0000",
+  "shippedDate": "1996-07-15T22:00:00.000+0000",
+  "shipVia": 3,
+  "freight": 32.3800,
+  "shipName": "Vins et alcools Chevalier",
+  "shipAddress": "59 rue de l'Abbaye",
+  "shipCity": "Reims",
+  "shipRegion": null,
+  "shipPostalCode": "51100",
+  "shipCountry": "France",
+  "orderDetails": [
+    {
+      "productID": 42,
+      "unitPrice": 9.80,
+      "quantity": 10,
+      "discount": 0
+    },
+    {
+      "productID": 72,
+      "unitPrice": 34.80,
+      "quantity": 5,
+      "discount": 0
+    },
+    {
+      "productID": 11,
+      "unitPrice": 14.00,
+      "quantity": 12,
+      "discount": 0
+    },
+    {
+      "productID": 24,
+      "unitPrice": 14.00,
+      "quantity": 12,
+      "discount": 0
+    }
+  ]
+}
+
+###
+PUT localhost:8080/order/1002
+Content-Type: application/json
+
+{
+  "customerID": "VINET",
+  "employeeID": 5,
+  "orderDate": "1996-07-03T22:00:00.000+0000",
+  "requiredDate": "1996-07-31T22:00:00.000+0000",
+  "shippedDate": "1996-07-15T22:00:00.000+0000",
+  "shipVia": 3,
+  "freight": 32.3800,
+  "shipName": "Vins et alcools Chevalier",
+  "shipAddress": "59 rue de l'Abbaye",
+  "shipCity": "Reims",
+  "shipRegion": null,
+  "shipPostalCode": "51100",
+  "shipCountry": "France",
+  "orderDetails": [
+    {
+      "productID": 42,
+      "unitPrice": 9.80,
+      "quantity": 10,
+      "discount": 0
+    },
+    {
+      "productID": 72,
+      "unitPrice": 34.80,
+      "quantity": 5,
+      "discount": 0
+    },
+    {
+      "productID": 11,
+      "unitPrice": 14.00,
+      "quantity": 12,
+      "discount": 0
+    },
+    {
+      "productID": 34,
+      "unitPrice": 14.00,
+      "quantity": 12,
+      "discount": 0
+    }
+  ]
+}
+
+###

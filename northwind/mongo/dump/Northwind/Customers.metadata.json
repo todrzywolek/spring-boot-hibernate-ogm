@@ -1,1 +1,1 @@
-{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Northwind.Customers"}],"uuid":"3100645a1d9645329a6ca3ffe6bbc2f1"}
+{"options":{},"indexes":[{"v":{"$numberInt":"2"},"key":{"_id":{"$numberInt":"1"}},"name":"_id_","ns":"Northwind.Customers"}],"uuid":"42cc6283a7424c09a621de365bca6c7a"}

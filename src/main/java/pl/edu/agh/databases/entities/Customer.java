@@ -14,7 +14,6 @@ import java.util.UUID;
 public class Customer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.TABLE)
     private String customerId;
 
     private String companyName;

@@ -21,16 +21,19 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.TABLE)
     private int orderID;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "CustomerID")
     private Customer customer;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @Column(name = "CustomerID", insertable = false, updatable = false)
+    private String customerID;
+
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "EmployeeID")
     private Employee employee;
 
-    @Transient
-    private Integer employeeId;
+    @Column(name = "EmployeeID", insertable = false, updatable = false)
+    private Integer employeeID;
 
     @Temporal(TemporalType.DATE)
     private Date orderDate;
@@ -41,9 +44,12 @@ public class Order {
     @Temporal(TemporalType.DATE)
     private Date shippedDate;
 
-    @ManyToOne(cascade=CascadeType.ALL)
+    @ManyToOne(cascade=CascadeType.PERSIST)
     @JoinColumn(name = "ShipVia")
     private Shipper shipper;
+
+    @Column(name = "ShipVia", insertable = false, updatable = false)
+    private Integer shipVia;
 
     private BigDecimal freight;
 
@@ -58,8 +64,4 @@ public class Order {
     private String shipPostalCode;
 
     private String shipCountry;
-
-//    @ToString.Exclude
-//    @OneToMany(mappedBy = "pk.order")
-//    private List<OrderDetail> orderDetails = new ArrayList<>();
 }
