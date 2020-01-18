@@ -29,3 +29,10 @@ build/
 
 ### VS Code ###
 .vscode/
+
+# Hibernate auto generated stuff
+ObjectStore/
+PutObjectStoreDirHere
+
+### Others
+.DS_Store

@@ -1,0 +1,640 @@
+{
+	"info": {
+		"_postman_id": "d737ea69-98af-4f99-8654-ed1bee0e245d",
+		"name": "Bazy_danych_Odrzywołek_Szewczyk",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "spring",
+			"item": [
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "Get categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryID\": \"1\",\n\t\"categoryName\": \"Custom category 1\",\n    \"description\": \"Custom\",\n    \"products\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update category",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryID\": \"5e20ec5c271a671a7df66354\",\n    \"categoryName\": \"Category 2\",\n    \"description\": \"Category 2\",\n    \"products\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove category",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/categories/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"categories",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "customers",
+					"item": [
+						{
+							"name": "Get customers",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get customer by  id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/HEHEHE",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"HEHEHE"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customerId\": \"HEHEHE\",\n    \"companyName\": \"Bottom-Dollar Markets\",\n    \"contactName\": \"Elizabeth Lincoln\",\n    \"contactTitle\": \"Accounting Manager\",\n    \"address\": \"23 Tsawassen Blvd.\",\n    \"city\": \"Tsawassen\",\n    \"region\": \"BC\",\n    \"postalCode\": \"T2F 8M4\",\n    \"country\": \"Canada\",\n    \"phone\": \"(604) 555-4729\",\n    \"fax\": \"(604) 555-3745\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update customers",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customerId\": \"HEHEHE2\",\n    \"companyName\": \"Bottom-Dollar Markets 2\",\n    \"contactName\": \"Elizabeth Lincolnn\",\n    \"contactTitle\": \"Accounting Manager\",\n    \"address\": \"23 Tsawassen Blvd.\",\n    \"city\": \"Tsawassen\",\n    \"region\": \"BC\",\n    \"postalCode\": \"T2F 8M4\",\n    \"country\": \"Canada\",\n    \"phone\": \"(604) 555-4729\",\n    \"fax\": \"(604) 555-3745\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/HEHEHE",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"HEHEHE"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove customer",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "Get orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/orders",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"orders"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get order by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/orders/10248",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"orders",
+										"10248"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create customer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"customerId\": \"HEHEHE\",\n    \"companyName\": \"Bottom-Dollar Markets\",\n    \"contactName\": \"Elizabeth Lincoln\",\n    \"contactTitle\": \"Accounting Manager\",\n    \"address\": \"23 Tsawassen Blvd.\",\n    \"city\": \"Tsawassen\",\n    \"region\": \"BC\",\n    \"postalCode\": \"T2F 8M4\",\n    \"country\": \"Canada\",\n    \"phone\": \"(604) 555-4729\",\n    \"fax\": \"(604) 555-3745\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update customers",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryID\": \"5e20ec5c271a671a7df66354\",\n    \"categoryName\": \"Category 2\",\n    \"description\": \"Category 2\",\n    \"products\": []\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Remove customer",
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"customers",
+										"5e20ec5c271a671a7df66354"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "employees",
+					"item": [
+						{
+							"name": "Get employees",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/employees",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"employees"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		},
+		{
+			"name": "Hibernate",
+			"item": [
+				{
+					"name": "orders",
+					"item": [
+						{
+							"name": "Get orders",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"customerID\": \"VINET\",\r\n  \"employeeID\": 5,\r\n  \"orderDate\": \"1996-07-03T22:00:00.000+0000\",\r\n  \"requiredDate\": \"1996-07-31T22:00:00.000+0000\",\r\n  \"shippedDate\": \"1996-07-15T22:00:00.000+0000\",\r\n  \"shipVia\": 3,\r\n  \"freight\": 32.3800,\r\n  \"shipName\": \"Vins et alcools Chevalier\",\r\n  \"shipAddress\": \"59 rue de l'Abbaye\",\r\n  \"shipCity\": \"Reims\",\r\n  \"shipRegion\": null,\r\n  \"shipPostalCode\": \"51100\",\r\n  \"shipCountry\": \"France\",\r\n  \"orderDetails\": [\r\n    {\r\n      \"productID\": 42,\r\n      \"unitPrice\": 9.80,\r\n      \"quantity\": 10,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 72,\r\n      \"unitPrice\": 34.80,\r\n      \"quantity\": 5,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 11,\r\n      \"unitPrice\": 14.00,\r\n      \"quantity\": 12,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 24,\r\n      \"unitPrice\": 14.00,\r\n      \"quantity\": 12,\r\n      \"discount\": 0\r\n    }\r\n  ]\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/order",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get order by id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/order/10248",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"10248"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "categories",
+					"item": [
+						{
+							"name": "Find category by Id",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/category/1",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category",
+										"1"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get categories",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Create category",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"value": "application/json",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n\t\"categoryName\": \"category1\",\n\t\"description\": \"Category 1\"\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/category",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"category"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
+				}
+			]
+		}
+	]
+}

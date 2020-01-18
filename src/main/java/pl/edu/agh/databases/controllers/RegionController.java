@@ -1,34 +1,69 @@
 package pl.edu.agh.databases.controllers;
 
-import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import lombok.Data;
+import org.dozer.DozerBeanMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.*;
+import pl.edu.agh.databases.entities.Region;
+import pl.edu.agh.databases.repositories.RegionRepository;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityTransaction;
+import javax.transaction.Transactional;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/regions")
+@RequestMapping("/region")
 public class RegionController {
 
-    private EntityManager entityManager;
-
-    public RegionController(EntityManager entityManager) {
-        this.entityManager = entityManager;
+    @Data
+    public static class RegionDTO {
+        private Integer regionID;
+        private String regionDescription;
     }
 
-    @GetMapping
-    public ResponseEntity<?> getRegions() {
-        EntityTransaction transaction = entityManager.getTransaction();
-        transaction.begin();
-        List regions = entityManager
-                .createQuery("SELECT r FROM Region r")
-                .setMaxResults(3)
-                .getResultList();
-        transaction.commit();
+    @Autowired
+    private RegionRepository regionRepository;
 
-        return ResponseEntity.ok(regions);
+    @Autowired
+    private DozerBeanMapper mapper;
+
+    @Transactional
+    @GetMapping
+    public List<RegionDTO> getAll() {
+        return regionRepository
+                .findAll()
+                .stream()
+                .map(x -> mapper.map(x, RegionDTO.class))
+                .collect(Collectors.toList());
+    }
+
+    @Transactional
+    @GetMapping("/{id}")
+    public RegionDTO getByID(@PathVariable Integer id) {
+        return mapper.map(regionRepository.findByID(id), RegionDTO.class);
+    }
+
+    @Transactional
+    @PostMapping
+    public RegionDTO addRegion(@RequestBody RegionDTO regionDTO) {
+        Region region = mapper.map(regionDTO, Region.class);
+        Region created = regionRepository.save(region);
+        return mapper.map(created, RegionDTO.class);
+    }
+
+    @Transactional
+    @PutMapping("/{id}")
+    public RegionDTO updateRegion(@PathVariable Integer id, @RequestBody RegionDTO regionDTO) {
+        Region region = regionRepository.findByID(id);
+        regionDTO.setRegionID(region.getRegionID());
+        mapper.map(regionDTO, region);
+        Region saved = regionRepository.save(region);
+        return mapper.map(saved, RegionDTO.class);
+    }
+
+    @Transactional
+    @DeleteMapping("/{id}")
+    public void deleteRegion(@PathVariable Integer id) {
+        regionRepository.delete(id);
     }
 }

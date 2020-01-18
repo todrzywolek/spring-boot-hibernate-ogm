@@ -1,0 +1,19 @@
+# mongo shell inside docker
+docker exec -it bazy-danych-mongo mongo
+
+#list databases
+db.adminCommand( { listDatabases: 1 } )
+
+use Northwind
+# get all collections in given DB
+db.getCollectionNames()
+
+# get all documents in given collection
+db.collectionName.find()
+db.Employees.find()
+
+# find by id
+db.Orders.find( { _id: 3 } )
+
+# restore dump
+mongorestore dump/
