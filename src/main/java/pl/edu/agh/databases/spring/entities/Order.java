@@ -19,7 +19,7 @@ public class Order {
     private String orderID;
 
     @Field("EmployeeID")
-    private Integer employeeId;
+    private String employeeId;
 
     @Field("CustomerID")
     private String customerId;

@@ -1,9 +1,12 @@
 package pl.edu.agh.databases.spring.controllers;
 
+import lombok.Data;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import pl.edu.agh.databases.spring.dao.ComplexOrderSpringRepository;
 import pl.edu.agh.databases.spring.dao.OrderSpringRepository;
-import pl.edu.agh.databases.spring.entities.Order;
+import pl.edu.agh.databases.spring.entities.*;
 
 import javax.validation.Valid;
 import java.net.URI;
@@ -15,9 +18,12 @@ import java.util.Optional;
 public class OrderSpringController {
 
     private OrderSpringRepository orderSpringRepository;
+    private ComplexOrderSpringRepository complexOrderSpringRepository;
 
-    public OrderSpringController(OrderSpringRepository orderSpringRepository) {
+    public OrderSpringController(OrderSpringRepository orderSpringRepository,
+                                 ComplexOrderSpringRepository complexOrderSpringRepository) {
         this.orderSpringRepository = orderSpringRepository;
+        this.complexOrderSpringRepository = complexOrderSpringRepository;
     }
 
     @GetMapping
@@ -60,5 +66,20 @@ public class OrderSpringController {
             orderSpringRepository.delete(order);
         }
         return ResponseEntity.ok().build();
+    }
+
+    @PostMapping("/complex")
+    public ResponseEntity<?> createOrderComplex(@RequestBody ComplexOrderDTO newOrder) {
+        complexOrderSpringRepository.createOrder(newOrder);
+
+        return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+
+    @Data
+    public static class ComplexOrderDTO {
+        private Order order;
+        private Employee employee;
+        private Customer customer;
     }
 }

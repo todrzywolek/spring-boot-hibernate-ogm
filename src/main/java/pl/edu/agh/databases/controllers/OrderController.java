@@ -3,6 +3,7 @@ package pl.edu.agh.databases.controllers;
 import lombok.Data;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import pl.edu.agh.databases.entities.Order;
 import pl.edu.agh.databases.entities.OrderDetail;
@@ -67,7 +68,10 @@ public class OrderController {
     @Transactional
     @GetMapping
     public List<OrderDTO> getAll() {
-        return orderRepository
+
+        long start = System.currentTimeMillis();
+
+        List<OrderDTO> collect = orderRepository
                 .findAll()
                 .stream()
                 .map(x -> mapper.map(x, OrderDTO.class))
@@ -78,6 +82,12 @@ public class OrderController {
                                 .map(y -> mapper.map(y, OrderDetailDTO.class))
                                 .collect(Collectors.toList())))
                 .collect(Collectors.toList());
+
+        long stop = System.currentTimeMillis();
+
+        System.out.println(stop - start);
+
+        return collect;
     }
 
     @Transactional
@@ -135,5 +145,13 @@ public class OrderController {
             detailToCreate.setProduct(productRepository.findByID(orderDetailDTO.getProductID()));
             orderDetailsRepository.save(detailToCreate);
         }
+    }
+
+    @Transactional
+    @GetMapping("/query")
+    public ResponseEntity<?> getByQuery(@RequestBody String query) {
+        List<Order> result = orderRepository.findByQuery(query);
+
+        return ResponseEntity.ok(result);
     }
 }

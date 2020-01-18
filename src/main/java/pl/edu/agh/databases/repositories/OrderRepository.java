@@ -9,7 +9,14 @@ import java.util.List;
 public class OrderRepository extends BaseRepository<Order> {
 
     public List<Order> findAll() {
-        return query("select x from Order x");
+        long start = System.currentTimeMillis();
+        List<Order> query = query("select x from Order x");
+
+        long stop = System.currentTimeMillis();
+
+        System.out.println(stop - start);
+
+        return query;
     }
 
     public Order findByID(int id) {
@@ -23,5 +30,9 @@ public class OrderRepository extends BaseRepository<Order> {
 
     public void delete(int id) {
         entityManager.remove(findByID(id));
+    }
+
+    public List<Order> findByQuery(String query) {
+        return entityManager.createNativeQuery( query, Order.class ).getResultList();
     }
 }
