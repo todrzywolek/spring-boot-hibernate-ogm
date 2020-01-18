@@ -336,7 +336,7 @@
 							"response": []
 						},
 						{
-							"name": "Create customer",
+							"name": "Create order",
 							"request": {
 								"method": "POST",
 								"header": [
@@ -349,10 +349,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"customerId\": \"HEHEHE\",\n    \"companyName\": \"Bottom-Dollar Markets\",\n    \"contactName\": \"Elizabeth Lincoln\",\n    \"contactTitle\": \"Accounting Manager\",\n    \"address\": \"23 Tsawassen Blvd.\",\n    \"city\": \"Tsawassen\",\n    \"region\": \"BC\",\n    \"postalCode\": \"T2F 8M4\",\n    \"country\": \"Canada\",\n    \"phone\": \"(604) 555-4729\",\n    \"fax\": \"(604) 555-3745\"\n}"
+									"raw": "{\r\n  \"customerID\": \"VINET\",\r\n  \"employeeID\": \"9\",\r\n  \"orderDate\": \"1996-07-03T22:00:00.000+0000\",\r\n  \"requiredDate\": \"1996-07-31T22:00:00.000+0000\",\r\n  \"shippedDate\": \"1996-07-15T22:00:00.000+0000\",\r\n  \"shipVia\": 3,\r\n  \"freight\": 32.3800,\r\n  \"shipName\": \"Vins et alcools Chevalier\",\r\n  \"shipAddress\": \"59 rue de l'Abbaye\",\r\n  \"shipCity\": \"Reims\",\r\n  \"shipRegion\": null,\r\n  \"shipPostalCode\": \"51100\",\r\n  \"shipCountry\": \"France\",\r\n  \"orderDetails\": [\r\n    {\r\n      \"productID\": 42,\r\n      \"unitPrice\": 9.80,\r\n      \"quantity\": 10,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 72,\r\n      \"unitPrice\": 34.80,\r\n      \"quantity\": 5,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 11,\r\n      \"unitPrice\": 14.00,\r\n      \"quantity\": 12,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 24,\r\n      \"unitPrice\": 14.00,\r\n      \"quantity\": 12,\r\n      \"discount\": 0\r\n    }\r\n  ]\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/spring/customers",
+									"raw": "http://localhost:8080/spring/orders",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -360,14 +360,46 @@
 									"port": "8080",
 									"path": [
 										"spring",
-										"customers"
+										"orders"
 									]
 								}
 							},
 							"response": []
 						},
 						{
-							"name": "Update customers",
+							"name": "Create complex order",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"name": "Content-Type",
+										"type": "text",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n\t\"order\": {\r\n\t\t\"customerId\": \"VINET\",\r\n\t\t\"employeeId\": \"5\",\r\n\t\t  \"orderDate\": \"1996-07-03T22:00:00.000+0000\",\r\n\t\t  \"requiredDate\": \"1996-07-31T22:00:00.000+0000\",\r\n\t\t  \"shippedDate\": \"1996-07-15T22:00:00.000+0000\",\r\n\t\t  \"shipVia\": 3,\r\n\t\t  \"freight\": 32.3800,\r\n\t\t  \"shipName\": \"Vins et alcools Chevalier\",\r\n\t\t  \"shipAddress\": \"59 rue de l'Abbaye\",\r\n\t\t  \"shipCity\": \"Reims\",\r\n\t\t  \"shipRegion\": null,\r\n\t\t  \"shipPostalCode\": \"51100\",\r\n\t\t  \"shipCountry\": \"France\",\r\n\t\t  \"orderDetails\": []\r\n\t},\r\n\t\"customer\": {\r\n\t\t\"customerId\": \"KRZBRZ\",\r\n\t\t\"companyName\": \"Januszpol\",\r\n\t\t\"contactName\": \"Krzysiu Brzeczyszczykiewicz\",\r\n\t\t\"contactTitle\": \"Nikt szczegolny\",\r\n\t\t\"address\": \"Uliczna 16\",\r\n\t\t\"city\": \"Pogwizdow\",\r\n\t\t\"region\": null,\r\n\t\t\"postalCode\": \"90110\",\r\n\t\t\"country\": \"Poland\",\r\n\t\t\"phone\": \"981-443655\",\r\n\t\t\"fax\": \"981-443655\"\r\n\t\t},\r\n\t\"employee\": {\r\n\t  \"lastName\": \"Ireneusz\",\r\n\t  \"firstName\": \"Wydmuch\",\r\n\t  \"title\": \"Mlodszy konserwator powierzchni poziomych\",\r\n\t  \"titleOfCourtesy\": \"Prof. Dr. hab. inz. of nothing\",\r\n\t  \"birthDate\": \"1952-02-18T23:00:00.000+0000\",\r\n\t  \"hireDate\": \"1992-08-13T22:00:00.000+0000\",\r\n\t  \"address\": \"Pogwizdow\",\r\n\t  \"city\": \"Tacoma\",\r\n\t  \"region\": \"WA\",\r\n\t  \"postalCode\": \"98401\",\r\n\t  \"country\": \"USA\",\r\n\t  \"homePhone\": \"(206) 555-9482\",\r\n\t  \"extension\": \"3457\",\r\n\t  \"notes\": \"Ireneusz Wydmuch z Pogwizodwa niestety nic nie umie :(\",\r\n\t  \"photoPath\": \"http://accweb/emmployees/fuller.bmp\",\r\n\t  \"reportsTo\": 2\r\n\t}\r\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/orders/complex",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"orders",
+										"complex"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Update order",
 							"request": {
 								"method": "PUT",
 								"header": [
@@ -380,10 +412,10 @@
 								],
 								"body": {
 									"mode": "raw",
-									"raw": "{\n\t\"categoryID\": \"5e20ec5c271a671a7df66354\",\n    \"categoryName\": \"Category 2\",\n    \"description\": \"Category 2\",\n    \"products\": []\n}"
+									"raw": "{\r\n  \"customerID\": \"VINET\",\r\n  \"employeeID\": 5,\r\n  \"orderDate\": \"1996-07-03T22:00:00.000+0000\",\r\n  \"requiredDate\": \"1996-07-31T22:00:00.000+0000\",\r\n  \"shippedDate\": \"1996-07-15T22:00:00.000+0000\",\r\n  \"shipVia\": 3,\r\n  \"freight\": 32.3800,\r\n  \"shipName\": \"Vins et alcools Chevalier\",\r\n  \"shipAddress\": \"59 rue de l'Abbaye\",\r\n  \"shipCity\": \"Reims\",\r\n  \"shipRegion\": null,\r\n  \"shipPostalCode\": \"51100\",\r\n  \"shipCountry\": \"France\",\r\n  \"orderDetails\": [\r\n    {\r\n      \"productID\": 42,\r\n      \"unitPrice\": 9.80,\r\n      \"quantity\": 10,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 72,\r\n      \"unitPrice\": 34.80,\r\n      \"quantity\": 5,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 11,\r\n      \"unitPrice\": 14.00,\r\n      \"quantity\": 12,\r\n      \"discount\": 0\r\n    },\r\n    {\r\n      \"productID\": 34,\r\n      \"unitPrice\": 14.00,\r\n      \"quantity\": 12,\r\n      \"discount\": 0\r\n    }\r\n  ]\r\n}"
 								},
 								"url": {
-									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"raw": "http://localhost:8080/spring/orders/5e20ec5c271a671a7df66354",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -391,7 +423,7 @@
 									"port": "8080",
 									"path": [
 										"spring",
-										"customers",
+										"orders",
 										"5e20ec5c271a671a7df66354"
 									]
 								}
@@ -399,7 +431,7 @@
 							"response": []
 						},
 						{
-							"name": "Remove customer",
+							"name": "Remove order",
 							"request": {
 								"method": "DELETE",
 								"header": [
@@ -415,7 +447,7 @@
 									"raw": ""
 								},
 								"url": {
-									"raw": "http://localhost:8080/spring/customers/5e20ec5c271a671a7df66354",
+									"raw": "http://localhost:8080/spring/orders/5e20ec5c271a671a7df66354",
 									"protocol": "http",
 									"host": [
 										"localhost"
@@ -423,7 +455,7 @@
 									"port": "8080",
 									"path": [
 										"spring",
-										"customers",
+										"orders",
 										"5e20ec5c271a671a7df66354"
 									]
 								}
@@ -462,6 +494,36 @@
 						}
 					],
 					"_postman_isSubFolder": true
+				},
+				{
+					"name": "products",
+					"item": [
+						{
+							"name": "Get products",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "http://localhost:8080/spring/products",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"spring",
+										"products"
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"_postman_isSubFolder": true
 				}
 			]
 		},
@@ -489,6 +551,60 @@
 									"port": "8080",
 									"path": [
 										"order"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Mongo native query",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "db.Orders.find({ '$query' : { 'customerID' : 'VINET' }, '$orderby' : { 'name' : 1 } })"
+								},
+								"url": {
+									"raw": "http://localhost:8080/order/query",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"query"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Find by Mongo native query Copy",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{ $query : { customerId : 'VINET' }, $orderby : { name : 1 } }"
+								},
+								"url": {
+									"raw": "http://localhost:8080/order/query",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"order",
+										"query"
 									]
 								}
 							},
