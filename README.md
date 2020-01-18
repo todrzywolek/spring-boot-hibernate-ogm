@@ -1,4 +1,22 @@
-# Hibernate OGM + MongoDB
+# Hibernate OGM + Spring Data Mongo + MongoDB
+Projekt na przedmiot Bazy Danych, niestacjonarne 2019/2020
+
+# Uczestnicy grupy:
+- Tomasz Odrzywołek
+- Albert Pawula
+- Tomasz Szewczyk
+
+# Temat:
+- Java, Hibernate + Spring Data Mongo + MongoDB
+
+# Adresy mailowe:
+- tomekodr@student.agh.edu.pl
+- albertpawula@gmail.com
+- tomasz.szewczyk02@gmail.com
+
+# Dokumentacja:
+- https://sites.google.com/view/bazy-danych-odrzywolek-pawula
+
 
 ## Hibernate OGM config
 MongoDB datastore configuration in resources/META-INF/persistence.xml file
