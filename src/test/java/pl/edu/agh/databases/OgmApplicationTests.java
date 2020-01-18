@@ -1,13 +1,12 @@
 package pl.edu.agh.databases;
 
-//import org.junit.jupiter.api.Test;
-//import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.jupiter.api.Test;
+import org.springframework.boot.test.context.SpringBootTest;
 
-//@SpringBootTest
+@SpringBootTest
 class OgmApplicationTests {
 
-//	@Test
+	@Test
 	void contextLoads() {
 	}
-
 }

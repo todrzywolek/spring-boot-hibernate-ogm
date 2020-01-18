@@ -264,3 +264,6 @@ Content-Type: application/json
 GET localhost:8080/category/1/products
 
 ###
+GET localhost:8080/report/productReport
+
+###

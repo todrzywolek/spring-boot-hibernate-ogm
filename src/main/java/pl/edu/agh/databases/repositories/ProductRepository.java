@@ -2,6 +2,7 @@ package pl.edu.agh.databases.repositories;
 
 import org.springframework.stereotype.Repository;
 import pl.edu.agh.databases.entities.Product;
+import pl.edu.agh.databases.entities.ProductReport;
 
 import java.util.List;
 
@@ -23,5 +24,11 @@ public class ProductRepository extends BaseRepository<Product> {
 
     public void delete(int id) {
         entityManager.remove(findByID(id));
+    }
+
+    public List<ProductReport> generateReport() {
+        return entityManager
+                .createNamedQuery("ProductReport")
+                .getResultList();
     }
 }
