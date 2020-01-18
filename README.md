@@ -17,6 +17,15 @@ Projekt na przedmiot Bazy Danych, niestacjonarne 2019/2020
 # Dokumentacja:
 - https://sites.google.com/view/bazy-danych-odrzywolek-pawula
 
+# Maszyna wirtualna
+Maszyna wirtualna z działającym projektem dostępna do pobrania pod adresem
+
+https://drive.google.com/file/d/1a5f2PA-6XZe2aLEPhp8B-Namegosdsn2/view?usp=sharing
+
+Uwaga!
+Rozmiar obrazu dysku maszyny wirtualnej to około 6 GB.
+
+Do uruchomienia maszyny wirtualnej wymagany jest program Oracle VirtualBox.
 
 ## Hibernate OGM config
 MongoDB datastore configuration in resources/META-INF/persistence.xml file
