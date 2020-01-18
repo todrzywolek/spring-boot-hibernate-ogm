@@ -103,6 +103,14 @@ które nie są jeszcze wspierane przez Hibernate OGM. Z tego powodu musieliśmy 
 
 ## Tworzenie repozytoriów
 Oto przykładowe repozytorium, używające zarówno queries napisanych w języlku HQL jak i natywnych MongoDB.
+Ponieważ Hibernate OGM jest jeszcze niedokończony tylko niektóre elementy składni HQL są obsługiwane:
+    - proste porównania "<", "<=", "=", ">=" i ">"
+    - IS NULL oraz IS NOT NULL
+    - operatory logiczne AND, OR, NOT
+    - LIKE, IN oraz BETWEEN
+    - ORDER BY
+    - JOIN na zagnieżdżonych kolekcjach
+Wszystkie pozostałe operacje mogą zostac wykonane przez natywne query MongoDB.
 
 ```java
 @Repository
